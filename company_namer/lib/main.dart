@@ -9,6 +9,11 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Company Namer',
+      theme: new ThemeData(          // Add the 3 lines from here... 
+        brightness: Brightness.dark,
+        primaryColor: Colors.pinkAccent[700],
+        accentColor: Colors.pink[300],
+      ),                             // ... to here.
       home: RandomWords(),
     );
   }
@@ -77,7 +82,9 @@ class RandomWordsState extends State<RandomWords> {
           _suggestions.addAll(generateWordPairs().take(10)); /*4*/
         }
         return _buildRow(_suggestions[index]);
-    });
+      }
+     
+    );
   }
 
   Widget _buildRow(WordPair pair) {
@@ -89,7 +96,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       trailing: new Icon(   // Add the lines from here... 
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.red : null,
+        color: alreadySaved ? Colors.tealAccent : null,
       ),                    // ... to here.
       onTap: () {      // Add 9 lines from here...
         setState(() {
